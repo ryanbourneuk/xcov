@@ -36,7 +36,7 @@ module Xcov
       tmp_dir = File.join(Xcov.config[:output_directory], 'tmp')
       FileUtils.rm_rf(tmp_dir) if File.directory?(tmp_dir)
 
-      report.coverage.to_s
+      (report.coverage * 100).round(2)
     end
 
     def parse_xccoverage
